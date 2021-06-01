@@ -90,7 +90,7 @@ def gestione_file(percorso, file_migliore):
             operazione_effettuata("  Operazione effettuata. Posizione file: ", percorso)
 
 def scarica_file(info_video, metodo):
-    percorso = ottieni_percorso()
+    percorso = os.getenv("USERPROFILE") + "\\Downloads"
     file_migliore = eval("info_video" + metodo)
     if not file_migliore == None:
         gestione_file(percorso, file_migliore)
@@ -122,16 +122,9 @@ def converti(percorso, stream):
     audio.write_audiofile(percorso + "\\" + stream.title + ".mp3", logger=None)
     os.remove(os.path.join(percorso, stream.title + vecchia_estensione))
 
-def ottieni_percorso():
-    if platform.system() == "Windows":
-        percorso = os.getenv("USERPROFILE") + "\\Downloads"
-    elif platform.system() == "Linux":
-        percorso = os.path.expanduser("~/Downloads")
-    return percorso
-
 def scarica_stream_specifico(info_video):
     streams = ottieni_streams(info_video)
-    percorso = ottieni_percorso()
+    percorso = os.getenv("USERPROFILE") + "\\Downloads"
     in_esecuzione = True
     while in_esecuzione:
         numero = input("  > ")
