@@ -1,8 +1,8 @@
-#COSA FA QUESTO PROGRAMMA:
+##COSA FA QUESTO PROGRAMMA:
 
 Proprio come lascia intendere dal nome, il programma scarica musica e video da youtube.
 #
-#FUNZIONAMENTO DEL PROGRAMMA:
+##FUNZIONAMENTO DEL PROGRAMMA:
 
 Il programma, una volta eseguito, richiede di digitare il comando 'help' per essere informati
 del funzionamento dello stesso, tramite una breve spiegazione quindi, dopo esser venuti a 
