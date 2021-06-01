@@ -1,11 +1,3 @@
-# aggiungere canzoncina all'avvio del programma? =)
-
-# moviepy doc: https://zulko.github.io/moviepy/index.html
-# pafy doc (dettagliata): https://pythonhosted.org/pafy/#playlist-retrieval
-# pafy doc (semplificata): https://pypi.org/project/pafy/
-
-# futuri miglioramenti:
-# scaricare e unire traccia video migliore a traccia audio migliore in un unico file
 
 import pafy, os, platform
 from moviepy.editor import *
