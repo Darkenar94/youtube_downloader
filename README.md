@@ -1,4 +1,3 @@
-#
 #COSA FA QUESTO PROGRAMMA:
 
 Proprio come lascia intendere dal nome, il programma scarica musica e video da youtube.
@@ -12,4 +11,3 @@ video ed una volta aver premuto invio verranno mostrate
 varie opzioni, le quali permettono di: scaricare il video e convertirlo in file audio, 
 scaricare il video integrale (audio + video), scaricare il video (senza audio) 
 oppure di scegliere manualmente tra uno dei stream disponibili. 
-#
