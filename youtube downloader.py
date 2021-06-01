@@ -1,5 +1,5 @@
 
-import pafy, os, platform
+import pafy, os
 from moviepy.editor import *
 
 def mostra_nome_programma():
