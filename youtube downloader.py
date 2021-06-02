@@ -154,9 +154,9 @@ def richiesta_proseguimento():
             return False
         mostra_messaggio("  Informazione rifiutata, riprovare.")
 
-def avvio_downloader(possibile_url):
+def avvio_downloader(url):
     mostra_messaggio(" "*71 + ">> URL CONVALIDATA.")
-    info_video = ottieni_info_video(possibile_url)
+    info_video = ottieni_info_video(url)
     mostra_opzioni()
     in_esecuzione = True
     while in_esecuzione:
