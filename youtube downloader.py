@@ -49,9 +49,9 @@ def mostra_messaggio(frase):
     print(frase)
     mostra_separatore()
 
-def operazione_effettuata(frase, percorso):
+def operazione_effettuata(percorso):
     mostra_separatore()
-    print(frase + percorso)
+    print("  Operazione effettuata. Posizione file: " + percorso)
     mostra_separatore()
 
 def ottieni_info_video(possibile_url):
@@ -82,12 +82,12 @@ def gestione_file(percorso, file_migliore):
         mostra_messaggio("  Operazione download avviata..")
         file_migliore.download(filepath=percorso)
         gestisci_audio(percorso, file, file_migliore)
-        operazione_effettuata("  Operazione effettuata. Posizione file: ", percorso)
+        operazione_effettuata(percorso)
     else:
         mostra_messaggio("  File già scaricato, impossibile eseguire il download.")
         if file_migliore.mediatype == "audio":
             converti(percorso, file_migliore)
-            operazione_effettuata("  Operazione effettuata. Posizione file: ", percorso)
+            operazione_effettuata(percorso)
 
 def scarica_file(info_video, metodo):
     percorso = os.getenv("USERPROFILE") + "\\Downloads"
