@@ -70,14 +70,24 @@ def mostra_opzioni():
 
 def gestisci_audio(percorso, file, file_migliore):
     if file_migliore.mediatype == "audio":
-        file_audio = file_migliore.title + ".mp3"
+        file_audio = modifica_caratteri(file_migliore.title) + ".mp3"
         if not file_audio in os.listdir(percorso):
             converti(percorso, file_migliore)
         else:
             os.remove(os.path.join(percorso, file))
 
+def modifica_caratteri(titolo):
+    caratteri_proibiti = '\/:*?"<>|'
+    caratteri_separati = list(titolo)
+    titolo_modificato = ""
+    for i in range(len(caratteri_separati)):
+        if caratteri_separati[i] in caratteri_proibiti:
+            caratteri_separati[i] = "_"
+        titolo_modificato += caratteri_separati[i]
+    return titolo_modificato
+
 def gestione_file(percorso, file_migliore):
-    file = file_migliore.title + "." + file_migliore.extension
+    file = modifica_caratteri(file_migliore.title) + "." + file_migliore.extension
     if not file in os.listdir(percorso):
         mostra_messaggio("  Operazione download avviata..")
         file_migliore.download(filepath=percorso)
@@ -116,11 +126,11 @@ def ottieni_streams(info_video):
 
 def converti(percorso, stream):
     vecchia_estensione = "." + stream.extension
-    audio = AudioFileClip(percorso + "\\" + stream.title + vecchia_estensione)
+    audio = AudioFileClip(percorso + "\\" + modifica_caratteri(stream.title) + vecchia_estensione)
     mostra_separatore()
     print("  Conversione file in corso..")
-    audio.write_audiofile(percorso + "\\" + stream.title + ".mp3", logger=None)
-    os.remove(os.path.join(percorso, stream.title + vecchia_estensione))
+    audio.write_audiofile(percorso + "\\" + modifica_caratteri(stream.title) + ".mp3", logger=None)
+    os.remove(os.path.join(percorso, modifica_caratteri(stream.title) + vecchia_estensione))
 
 def scarica_stream_specifico(info_video):
     streams = ottieni_streams(info_video)
